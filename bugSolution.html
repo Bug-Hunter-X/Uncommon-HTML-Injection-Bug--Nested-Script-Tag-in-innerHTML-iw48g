@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will not be shown initially.
+  </div>
+  <script>
+    //Correct way to use innerHTML with DOMParser to avoid XSS
+    const parser = new DOMParser();
+    const myHTML = '<p>This is a paragraph.</p>';
+    const doc = parser.parseFromString(myHTML, 'text/html');
+    const newContent = doc.body.firstChild;
+    document.getElementById("myDiv").appendChild(newContent);
+  </script>
+</body>
+</html>
