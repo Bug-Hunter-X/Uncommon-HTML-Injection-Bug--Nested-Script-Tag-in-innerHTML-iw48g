@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will not be shown initially.
+  </div>
+  <script>
+    //Incorrect way to use innerHTML with a variable that contains HTML with script tag
+    let myHTML = '<p>This is a paragraph.</p> <script>alert("This script will cause an error!");</script>';
+    document.getElementById("myDiv").innerHTML = myHTML; 
+  </script>
+</body>
+</html>
